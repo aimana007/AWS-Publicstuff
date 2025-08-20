@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Example CloudFormation template with VPC, EC2, and S3 bucket'
+
+Parameters:
+  ProjectName:
+    Type: String
+    Default: 'my-project'
+    Description: 'Name of the project (used for resource naming)'
+  
+  Environment:
+    Type: String
+    Default: 'dev'
+    AllowedValues: 
+      - dev
+      - staging
+      - prod
+    Description: 'Environment name'
+  
+  InstanceType:
+    Type: String
+    Default: 't3.micro'
+    AllowedValues:
+      - t3.micro
+      - t3.small
+      - t3.medium
+    Description: 'EC2 instance type'
+  
+  KeyPairName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: 'EC2 Key Pair for SSH access'
